@@ -1,0 +1,34 @@
+#board {
+  height: 480px;
+  width: 560px;
+  border-radius: 15px;
+  border-left: solid 1px white;
+  background-color: blue;
+}
+
+.row {
+  height: 80px;
+  width: 560px;
+  box-sizing: border-box;
+}
+
+.slot {
+  float: left;
+  height: 80px;
+  width: 80px;
+  box-sizing: border-box;
+}
+
+.circle {
+  background-color: white;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 7.5px;
+  margin-top: 7.5px;
+}
+
+#reset {
+  text-align: center;
+}
