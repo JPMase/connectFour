@@ -1,9 +1,18 @@
+#container {
+
+}
+
 #board {
   height: 480px;
   width: 560px;
   border-radius: 15px;
   border-left: solid 1px white;
-  background-color: blue;
+  background-color: yellow;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+  color: black;
 }
 
 .row {
