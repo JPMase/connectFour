@@ -1,7 +1,22 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <title>Connect 4 Tests</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/mocha/mocha.css">
   </head>
   <body>
+    <!-- Test results inserted in this div -->
+    <div id="mocha"></div>
+    <!-- Load Mocha and Chai -->
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <!-- Call mocha.setup to make Mocha testing helpers available -->
+    <script>mocha.setup('bdd')</script>
+    <!-- Load files to test -->
+    <script src="../src/script.js"></script>
+    <!-- Load test files -->
+    <script src="scriptTest.js"></script>
+    <!-- Run tests -->
+    <script>mocha.run();</script>
   </body>
 </html>
