@@ -185,3 +185,5 @@ $("#reset").click(function() {
   $(".circle").css("background-color", "white");
 });
 
+// export { isHorizontal };
+
