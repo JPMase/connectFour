@@ -11,6 +11,30 @@ var moves = [[1,8,15,22,29,36], [2,9,16,23,30,37], [3,10,17,24,31,38], [4,11,18,
 // Board color variable
 var boardColor = "traditional";
 
+var slot = 36;
+var column = 0;
+var row = 1;
+
+// Function to render board
+var startBoard = function() {
+  for (var i = 0; i < 42; i++) {
+    $(".row" + row).append("<div class='slot'><div class='fill' id='fill'></div></div>");
+    $(".fill").attr("class", "circle " + column);
+    $("#fill").attr("id", slot);
+    if (column === 6) {
+      row++;
+      column = 0;
+      slot -= 13;
+    } else {
+      column++;
+      slot++;
+    }
+  }
+}
+
+// Render board
+startBoard();
+
 // On click for color scheme button
 $("#scheme").click(function() {
   if (boardColor === "traditional") {
@@ -174,6 +198,8 @@ $(".circle").click(function() {
 
 // On click for start over button
 $("#reset").click(function() {
+  // Re render board
+  // startBoard();
   // Reset play counter
   playCount = 0;
   // Reset played moves arrays
