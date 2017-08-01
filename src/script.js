@@ -15,6 +15,12 @@ var slot = 36;
 var column = 0;
 var row = 1;
 
+var resetVals = function() {
+  slot = 36;
+  column = 0;
+  row = 1;
+}
+
 // Function to render board
 var startBoard = function() {
   for (var i = 0; i < 42; i++) {
@@ -36,11 +42,11 @@ var startBoard = function() {
 startBoard();
 
 // On click for color scheme button
-$("#scheme").click(function() {
+$("body").on("click", "#scheme", function() {
   if (boardColor === "traditional") {
     $("#board").css("background-color", "blue");
     $("#scheme").html("Modern");
-    boardColor = "modern"
+    boardColor = "modern";
   } else {
     $("#board").css("background-color", "yellow");
     $("#scheme").html("Traditional");
@@ -119,7 +125,9 @@ var isDiagRight = function(arr, val, connects) {
 }
 
 // On click event for move
-$(".circle").click(function() {
+$("body").on("click", ".circle", function() {
+  // Hide scheme option on first move
+  $("#scheme").hide();
   // Column number of clicked element ie index of array in moves
   var col = moves[$(this).attr("class").toString()[7]];
 
@@ -196,10 +204,17 @@ $(".circle").click(function() {
   }
 });
 
+
 // On click for start over button
 $("#reset").click(function() {
   // Re render board
-  // startBoard();
+  resetVals();
+  $("#board").empty();
+  $("#board").css("background-color", "yellow");
+  $("#board").css("color", "black");
+  $("#board").css("text-align", "");
+  $("#board").append("<div class='row1'></div><div class='row2'></div><div class='row3'></div><div class='row4'></div><div class='row5'></div><div class='row6'></div>");
+  startBoard();
   // Reset play counter
   playCount = 0;
   // Reset played moves arrays
@@ -209,7 +224,11 @@ $("#reset").click(function() {
   moves = [[1,8,15,22,29,36], [2,9,16,23,30,37], [3,10,17,24,31,38], [4,11,18,25,32,39], [5,12,19,26,33,40], [6,13,20,27,34,41], [7,14,21,28,35,42]];
   // Reset board
   $(".circle").css("background-color", "white");
+  boardColor = "traditional";
+  $("#scheme").html("Traditional");
+  $("#scheme").show();
 });
+
 
 // export { isHorizontal };
 
